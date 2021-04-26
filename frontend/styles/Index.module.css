@@ -1,22 +1,29 @@
 .container {
     width: 100%;
-    height: 100vh;
-    margin: 0 auto;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
 }
-
+.house{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.message{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 25px;;
+}
 .title {
     font-size: 3rem;
-    margin-bottom: 30px;
-    padding-top: 60px;
-    padding-bottom: 40px;
     font-weight: bold;
     color: green;
 }
+
 
 .list {
     display: flex;

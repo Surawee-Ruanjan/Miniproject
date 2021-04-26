@@ -79,15 +79,7 @@ export default function Register({ token }) {
             <div className={styles.container}>
                 <Navbar />
                 <h1>Register</h1>
-                <div><b>Token:</b> {token.substring(0, 15)}...
-                <button
-                className={styles.btn1}
-                        onClick={() => { navigator.clipboard.writeText(token) }}>
-                        Copy token
-                </button>
-                </div>
-                <br />
-            <b>Status: </b> <i>{status}</i>
+                <b>Status: </b> <i>{status}</i>
                 <br /><br />
                 <div className={styles.content}>
                     {registerForm()}
