@@ -5,6 +5,7 @@ import axios from "axios";
 import React, { } from "react";
 import styles from "../styles/Index.module.css";
 import Navbar from "../components/navbar";
+import config from "../config/config";
 // const URL = `${config.URL}/houses`;
 // const URL_SEL = `${config.URL}/purchase`;
 const fetcher = (key) => fetch(key).then((res) => res.json());

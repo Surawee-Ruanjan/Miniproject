@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/search.module.css";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
+import config from "../config/config";
+
 const URL = `${config.URL}/houses`;
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
