@@ -8,6 +8,7 @@ import Navbar from "../components/navbar";
 import config from "../config/config";
 const URL = `${config.URL}/houses`;
 const URL_SEL = `${config.URL}/purchase`;
+
 const fetcher = (key) => fetch(key).then((res) => res.json());
 const index = () => {
   const { data, error } = useSWR(URL, fetcher, { revalidateOnFocus: false });

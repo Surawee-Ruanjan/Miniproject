@@ -10,15 +10,8 @@ const URL = `${config.URL}/houses`;
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
   const [houses, setHouses] = useState({});
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [date, setDate] = useState("");
-  const [date2, setDate2] = useState("");
-  const [price, setPrice] = useState(0);
   const [house, setHouse] = useState({});
-  const [actionbut, setactionbut] = useState(false)
-  const [butstatus, setbutstatus] = useState(false)
-
+  
 
   const profileUser = async () => {
     try {

@@ -13,7 +13,6 @@ const admin = ({ token }) => {
   const [date, setDate] = useState("");
   const [date2, setDate2] = useState("");
   const [price, setPrice] = useState(0);
-  const [house, setHouse] = useState({});
   const [actionbut, setactionbut] = useState(false)
   const [butstatus, setbutstatus] = useState(false)
 
