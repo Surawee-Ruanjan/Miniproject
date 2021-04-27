@@ -5,8 +5,8 @@ import axios from "axios";
 import React, { } from "react";
 import styles from "../styles/Index.module.css";
 import Navbar from "../components/navbar";
-const URL = "http://localhost/api/houses";
-const URL_SEL = "http://localhost/api/purchase";
+const URL = `${config.URL}/houses`;
+const URL_SEL = `${config.URL}/purchase`;
 const fetcher = (key) => fetch(key).then((res) => res.json());
 const index = () => {
   const { data, error } = useSWR(URL, fetcher, { revalidateOnFocus: false });
