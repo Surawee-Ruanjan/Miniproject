@@ -1,6 +1,6 @@
 
 const LOCAL_URL = 'http://localhost/api';
-const PROD_URL = 'https://production.werapun.com/api';
+const PROD_URL = 'https://ancient-forest-73916.herokuapp.com/api';
 
 console.log('node env', process.env.NODE_ENV);
 
