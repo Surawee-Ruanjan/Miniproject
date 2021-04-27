@@ -31,13 +31,13 @@ const admin = ({ token }) => {
   };
 
   const gethouse = async (id) => {
-    const result = await axios.get(`${URL}/${id}`)
+    const result = await axios.get(`${config.URL}/${id}`)
     console.log('house id: ', result.data)
     setHouse(result.data)
   }
 
   const getHouses = async () => {
-    let result = await axios.get(URL);
+    let result = await axios.get(`${config.URL}/houses`);
     setHouses(result.data.list);
   };
 

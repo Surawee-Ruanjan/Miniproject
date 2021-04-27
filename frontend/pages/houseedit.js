@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/house.module.css";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
-const URL = `${config.URL}/houses`;
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
   const [houses, setHouses] = useState({});
@@ -38,7 +37,7 @@ const admin = ({ token }) => {
   };
 
   const getHouses = async () => {
-    let result = await axios.get(URL);
+    let result = await axios.get(`${config.URL}/houses`);
     setHouses(result.data.list);
   };
 
@@ -55,12 +54,12 @@ const admin = ({ token }) => {
   };
 
   const deleteHouse = async (id) => {
-    let result = await axios.delete(`${URL}/${id}`);
+    let result = await axios.delete(`${config.URL}/${id}`);
     getHouses();
   };
 
   const updateHouse = async (id) => {
-    let result = await axios.put(`${URL}/${id}`, {
+    let result = await axios.put(`${config.URL}/${id}`, {
       name,
       age,
       date,

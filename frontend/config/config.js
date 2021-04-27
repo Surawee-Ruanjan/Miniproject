@@ -1,5 +1,5 @@
 
-const LOCAL_URL = 'https://ancient-forest-73916.herokuapp.com/api';
+const LOCAL_URL = 'http://localhost:3000/api';
 const PROD_URL = 'https://ancient-forest-73916.herokuapp.com/api';
 
 console.log('node env', process.env.NODE_ENV);
