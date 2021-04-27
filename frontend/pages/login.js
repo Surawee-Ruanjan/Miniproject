@@ -13,12 +13,12 @@ export default function Login({ token }) {
   const [remember, setRemember] = useState(false);
   const login = async (req, res) => {
     try {
-      let result = await axios.post(`${config.URL}/login`,{ username, password, remember },{ withCredentials: true });
+      let result = await axios.post(`${config.URL}/login`, { username, password, remember }, { withCredentials: true });
       console.log("result: ", result);
       console.log("result.data:  ", result.data);
       console.log("token:  ", token);
       setStatus(result.status + ": " + result.data.user.username);
-    } 
+    }
     catch (e) {
       console.log("error: ", JSON.stringify(e.response));
       setStatus(JSON.stringify(e.response).substring(0, 80) + "...");
@@ -35,7 +35,7 @@ export default function Login({ token }) {
         <input
           type="text"
           name="username"
-          placeholder="username"
+          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
@@ -44,7 +44,7 @@ export default function Login({ token }) {
         <input
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
@@ -55,15 +55,10 @@ export default function Login({ token }) {
           type="checkbox"
           onClick={reMem}
         />
-       
-      </div> 
+      </div>
       <div className={styles.text}><label><ins><i><b>Remember Me</b></i></ins></label></div>
     </div>
-  );
-  const copyText = () => {
-    navigator.clipboard.writeText(token);
-  };
-
+  )
   return (
     <Layout>
       <Head>
@@ -73,9 +68,8 @@ export default function Login({ token }) {
         <Navbar />
         <h1>Login</h1>
         <br />
-        <div>Status: {status}</div>
-        <br />
         {loginForm()}
+        <div>Status: {status}</div>
         <div>
           <button className={styles.btn2} onClick={login}>Login</button>
         </div>

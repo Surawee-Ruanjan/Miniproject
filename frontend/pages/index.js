@@ -23,7 +23,7 @@ const index = () => {
     if (data.list && data.list.length) {
       return data.list.map((item, index) => {
         return (
-            <div className={styles.listItem} key={index}>
+          <div className={styles.listItem} key={index}>
             <div><b>HouseID:</b> {item.id}</div>
             <div><b>Name:</b> {item.name}</div>
             <div><b>Age:</b> {item.age}</div>
@@ -42,15 +42,31 @@ const index = () => {
       <Head>
         <title>Home Page</title>
       </Head>
-      <div className={styles.house}>Pet House</div>
-
-
-      <div className={styles.message}>Per Day : 250 baht<p>Per Month : 6000 baht</p>
-
-      </div>
       <div className={styles.container}><Navbar />
+
+        <div className={styles.house}>Cat House</div>
+
+
+        <div className={styles.message}>Because your cat is important So we take care of it like family members. Give love and care The best. 💕
+<br />Rule<br />
+
+1.With a camera to view youngsters 24 hours a day<br />
+2.Free good quality cat litter<br />
+3.Free cat fountain and filtered water NSF standards<br />
+4.With AC 24 hours<br />
+4.With air purifier 24 hours a day<br />
+5.With rooms, shady garden views, with birds to see all day<br />
+Price<br/>
+Per Day : 250 baht<br />
+Per Month : 6000 baht<br />
+
+This price includes cat litter. A fountain with drinking water that is NSF standards. Ready to turn on the air conditioner and air purifier 24 hours a day
+Welcome all customers<br />
+
+
+        </div>
         <div className={styles.list}>
-            {showHouses()}
+          {showHouses()}
         </div>
 
       </div>

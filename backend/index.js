@@ -111,7 +111,7 @@ let houses = {
   list: [
     { "id": 1, "name": "Somchai", "age": 1, "date": "24/02", "date2": "28/02","price": 1000 },
     { "id": 2, "name": "Srinuar", "age": 2, "date": "12/05", "date2": "20/05", "price": 2000 },
-    { "id": 3, "name": "Ibo", "age": 3, "date": "05/08", "date2": "05/09","price": 6000 }]
+    ]
 }
 
 

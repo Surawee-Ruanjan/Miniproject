@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    margin-top: 10%;
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,6 +8,7 @@
     background-color: white;
 }
 .house{
+    margin-top: 3%;
     font-size: 40px;
     font-weight: bold;
     text-align: center;
@@ -16,7 +17,7 @@
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
-    font-size: 25px;;
+    font-size: 15px;;
 }
 .title {
     font-size: 3rem;
