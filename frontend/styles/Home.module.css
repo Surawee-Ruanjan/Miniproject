@@ -1,5 +1,4 @@
 .container {
-    min-height: 100vh;
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
@@ -62,47 +61,20 @@
   }
   
   .btn {
-      background-color: white;
-      color: black;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid white;
+    background-color: black;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid black;
   }
   .btn:hover{
-      background-color: black;
-      color: #fff;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid white;
   }
-  .btn1{
-    background-color: brown;
-    border-radius: 10%;
-    border: none;
-    color: white;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  
-  .btn1 {
-      background-color: brown;
-      color: whitesmoke;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid brown;
-  }
-  .btn1:hover{
-      background-color: red;
-      color: #fff;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid red;
-  }
+
   .btn2{
     background-color: white;
     border-radius: 10%;
@@ -118,16 +90,17 @@
   }
   
   .btn2 {
-      background-color: white;
-      color: black;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid white;
+    background-color: black;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid black;
   }
   .btn2:hover{
-      background-color: black;
-      color: #fff;
-      font-size: 1rem;
-      margin-top: 10px;
-      border: 2px solid black;
+      
+background-color: white;
+color: black;
+font-size: 1rem;
+margin-top: 10px;
+border: 2px solid white;
   }

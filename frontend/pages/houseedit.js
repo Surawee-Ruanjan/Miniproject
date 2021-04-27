@@ -109,10 +109,9 @@ const admin = ({ token }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <h1><ins>History</ins></h1>
+      <h1><ins>House Management</ins></h1>
       <div className={styles.form_add}>
-        <h2>Add</h2>
-        Name:
+      Name:
         <input
           type="text"
           name="name"
@@ -158,13 +157,6 @@ const admin = ({ token }) => {
       </div>
 
       <div className={styles.list}>{showHouses()}</div>
-      {/* <div className={styles.list1}><b>(selected House):</b>
-        <b>Name:</b>{house.name}
-        <b>Age:</b>{house.age}
-        <b>Deposit Date:</b>{house.date}
-        <b>Pick-up Date:</b>{house.date2}
-        <b>Price:</b>{house.price}
-      </div> */}
     </div>
   );
 };

@@ -145,7 +145,7 @@ router
     houses.list[id].age = req.body.age;
     houses.list[id].date = req.body.date;
     houses.list[id].date2 = req.body.date2;
-    newhouse.price = req.body.price;
+    houses.list[id].price = req.body.price;
     res.json(houses.list);
   })
   .delete((req, res) => {
@@ -154,14 +154,14 @@ router
   });
 
 
-router.route("/purchase/:houseId")
+router.route("/purchase/:houseid")
   .post((req, res) => {
-    let id = houses.list.findIndex((item) => +item.id == +req.params.houseId)
+    let id = houses.list.findIndex((item) => +item.id == +req.params.houseid)
     if (id == -1) {
       res.json({ message: "House not found" })
     }
     else {
-      houses.list = houses.list.filter((item) => +item.id !== +req.params.houseId);
+      houses.list = houses.list.filter((item) => +item.id !== +req.params.houseid);
       res.json(houses.list);
     }
   })

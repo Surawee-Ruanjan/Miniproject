@@ -24,12 +24,11 @@ const index = () => {
       return data.list.map((item, index) => {
         return (
           <div className={styles.listItem} key={index}>
-            <div><b>HouseID:</b> {item.id}</div>
-            <div><b>Name:</b> {item.name}</div>
-            <div><b>Age:</b> {item.age}</div>
-            <div> <b>Deposit Date:</b> {item.date} </div>
-            <div><b>Pick-up Date:</b> {item.date2}</div>
-            <div><b>Price:</b> {item.price}</div>
+            <div><b>Name : {item.name}</b> </div>
+            <div><b>Age : {item.age}</b> </div>
+            <div><b>Deposit Date : {item.date}</b>  </div>
+            <div><b>Pick-up Date : {item.date2}</b> </div>
+            <div><b>Price : {item.price}</b> </div>
           </div>
         );
       });

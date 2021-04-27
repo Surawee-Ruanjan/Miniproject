@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import styles from "../styles/get.module.css";
+import styles from "../styles/search.module.css";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
 const URL = "http://localhost/api/houses";
@@ -16,13 +16,6 @@ const admin = ({ token }) => {
   const [actionbut, setactionbut] = useState(false)
   const [butstatus, setbutstatus] = useState(false)
 
-  useEffect(() => {
-    getHouses();
-    if (houses.length === 9) {
-      setbutstatus(true)
-    } else setbutstatus(false)
-    profileUser();
-  }, [actionbut]);
 
   const profileUser = async () => {
     try {
@@ -48,41 +41,12 @@ const admin = ({ token }) => {
     setHouses(result.data.list);
   };
 
-  const addHouse = async () => {
-    let result = await axios.post(URL, {
-      name,
-      age,
-      date,
-      date2,
-      price,
-    });
-    console.log(result);
-    getHouses();
-  };
-
-  const deleteHouse = async (id) => {
-    let result = await axios.delete(`${URL}/${id}`);
-    getHouses();
-  };
-
-  const updateHouse = async (id) => {
-    let result = await axios.put(`${URL}/${id}`, {
-      name,
-      age,
-      date,
-      date2,
-      price,
-    });
-    console.log(result);
-    getHouses();
-  };
-
   const showHouses = () => {
     if (houses && houses.length) {
       return houses.map((item, index) => {
         return (
           <div className={styles.listItem} key={index}>
-            <div><b>HouseID:</b> {item.id}</div>
+            <div><b>HouseID :  {item.id}</b></div>
             <div className={styles.edit_button}>
               <button
                 className={styles.button_get}
@@ -101,15 +65,13 @@ const admin = ({ token }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <h1><ins>History</ins></h1>
-
       <div className={styles.list}>{showHouses()}</div>
-      <div className={styles.list1}><b>(selected House):</b>
-        <b>Name:</b>{house.name}
-        <b>Age:</b>{house.age}
-        <b>Deposit Date:</b>{house.date}
-        <b>Pick-up Date:</b>{house.date2}
-        <b>Price:</b>{house.price}
+      <div className={styles.list1}>
+        <b>Name : {house.name}</b>
+        <b>Age : {house.age}</b>
+        <b>Deposit Date : {house.date}</b>
+        <b>Pick-up Date : {house.date2}</b>
+        <b>Price : {house.price}</b>
       </div>
     </div>
   );
