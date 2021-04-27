@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import config from "../config/config";
 
 const URL = `${config.URL}/houses`;
+
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
   const [houses, setHouses] = useState({});
