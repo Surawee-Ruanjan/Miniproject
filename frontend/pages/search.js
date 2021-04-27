@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/search.module.css";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
-const URL = "http://localhost/api/houses";
+const URL = `${config.URL}/houses`;
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
   const [houses, setHouses] = useState({});
