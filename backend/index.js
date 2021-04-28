@@ -75,10 +75,10 @@ router.get(
 );
 /* GET user foo. */
 router.get(
-  "/houseedit",
+  "/projectedit",
   passport.authenticate("jwt", { session: false }),
   (req, res, next) => {
-    res.status(200).json({ message: "house" });
+    res.status(200).json({ message: "Project" });
   }
 );
 
@@ -107,62 +107,62 @@ router.get("/", (req, res, next) => {
   res.send("Respond without authentication");
 });
 
-let houses = {
+let projects = {
   list: [
-    { "id": 1, "name": "Somchai", "age": 1, "date": "24/02", "date2": "28/02","price": 1000 },
-    { "id": 2, "name": "Srinuar", "age": 2, "date": "12/05", "date2": "20/05", "price": 2000 },
+    { "id": 1, "subjectcode": "240-311" , "subjectname": "DISTRIBUTED COM&WEB TECHNO" , "workname": "Miniproject", "deadline": "28/02","type": "Alone" },
+    { "id": 2, "subjectcode": "240-312" , "subjectname": "COMPUTER SECURITY", "workname": "Assignment1", "deadline": "20/05", "type": "Group2people" },
     ]
 }
 
 
 router
-  .route("/houses")
+  .route("/projects")
   .get((req, res) => {
-    res.send(houses);
+    res.send(projects);
   })
   .post((req, res) => {
     console.log(req.body);
-    let newhouse = {};
-    newhouse.id = houses.list.length ? houses.list[houses.list.length - 1].id + 1 : 1;
-    newhouse.name = req.body.name;
-    newhouse.age = req.body.age;
-    newhouse.date = req.body.date;
-    newhouse.date2 = req.body.date2;
-    newhouse.price = req.body.price;
-    houses = { list: [...houses.list, newhouse] };
-    res.json(houses);
+    let newproject = {};
+    newproject.id = projects.list.length ? projects.list[projects.list.length - 1].id + 1 : 1;
+    newproject.subjectcode = req.body.subjectcode;
+    newproject.subjectname = req.body.subjectname;
+    newproject.workname = req.body.workname;
+    newproject.deadline = req.body.deadline;
+    newproject.type = req.body.type;
+    projects = { list: [...projects.list, newproject] };
+    res.json(projects);
   });
 
 router
-  .route("/houses/:houseid")
+  .route("/projects/:projectid")
   .get((req, res) => {
-    let id = houses.list.findIndex((item) => +item.id == +req.params.houseid)
-    res.json(houses.list[id]);
+    let id = projects.list.findIndex((item) => +item.id == +req.params.projectid)
+    res.json(projects.list[id]);
   })
   .put((req, res) => {
-    let id = houses.list.findIndex((item) => item.id == +req.params.houseid);
-    houses.list[id].name = req.body.name;
-    houses.list[id].age = req.body.age;
-    houses.list[id].date = req.body.date;
-    houses.list[id].date2 = req.body.date2;
-    houses.list[id].price = req.body.price;
-    res.json(houses.list);
+    let id = projects.list.findIndex((item) => item.id == +req.params.projectid);
+    projects.list[id].subjectcode = req.body.subjectcode;
+    projects.list[id].subjectname = req.body.subjectname;
+    projects.list[id].workname = req.body.workname;
+    projects.list[id].deadline = req.body.deadline;
+    projects.list[id].type = req.body.type;
+    res.json(projects.list);
   })
   .delete((req, res) => {
-    houses.list = houses.list.filter((item) => +item.id !== +req.params.houseid);
-    res.json(houses.list);
+    projects.list = projects.list.filter((item) => +item.id !== +req.params.projectid);
+    res.json(projects.list);
   });
 
 
-router.route("/purchase/:houseid")
+router.route("/purchase/:projectid")
   .post((req, res) => {
-    let id = houses.list.findIndex((item) => +item.id == +req.params.houseid)
+    let id = projects.list.findIndex((item) => +item.id == +req.params.projectid)
     if (id == -1) {
-      res.json({ message: "House not found" })
+      res.json({ message: "Project not found" })
     }
     else {
-      houses.list = houses.list.filter((item) => +item.id !== +req.params.houseid);
-      res.json(houses.list);
+      projects.list = projects.list.filter((item) => +item.id !== +req.params.projectid);
+      res.json(projects.list);
     }
   })
 

@@ -12,7 +12,7 @@ export default function Register({ token }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
-    const [position, setPosition] = useState('')
+    const [year, setYear] = useState('')
     const [status, setStatus] = useState('')
 
     const profileUser = async () => {
@@ -26,7 +26,7 @@ export default function Register({ token }) {
     const register = async (req, res) => {
         try {
             let result = await axios.post(`${config.URL}/register`,
-                { username, email, name, position, password })
+                { username, email, name, year, password })
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
@@ -69,13 +69,13 @@ export default function Register({ token }) {
                     onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
-                <b>Position:</b>
+                <b>Year:</b>
             </div>
             <div>
-                <input type="text"
-                    name="position"
-                    placeholder="Your Position"
-                    onChange={(e) => setPosition(e.target.value)} />
+                <input type="number"
+                    name="year"
+                    placeholder="Your Year"
+                    onChange={(e) => setYear(e.target.value)} />
             </div>
             <div>
                 <b>Password:</b>
@@ -98,7 +98,7 @@ export default function Register({ token }) {
             </Head>
             <div className={styles.container}>
                 <Navbar />
-                <h1>Staff Register Only</h1>
+                <h1>Register</h1>
                 <br /><br />
                 <div className={styles.content}>
                     {registerForm()}

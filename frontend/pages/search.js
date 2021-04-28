@@ -5,13 +5,13 @@ import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
 import config from "../config/config";
 
-const URL = `${config.URL}/houses`;
+const URL = `${config.URL}/projects`;
 
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
-  const [houses, setHouses] = useState({});
-  const [house, setHouse] = useState({});
-  
+  const [projects, setProjects] = useState({});
+  const [project, setProject] = useState({});
+
 
   const profileUser = async () => {
     try {
@@ -26,27 +26,27 @@ const admin = ({ token }) => {
     }
   };
 
-  const gethouse = async (id) => {
+  const getproject = async (id) => {
     const result = await axios.get(`${config.URL}/${id}`)
-    console.log('house id: ', result.data)
-    setHouse(result.data)
+    console.log('project id: ', result.data)
+    setProject(result.data)
   }
 
-  const getHouses = async () => {
-    let result = await axios.get(`${config.URL}/houses`);
-    setHouses(result.data.list);
+  const getProjects = async () => {
+    let result = await axios.get(`${config.URL}/projects`);
+    setProjects(result.data.list);
   };
 
-  const showHouses = () => {
-    if (houses && houses.length) {
-      return houses.map((item, index) => {
+  const showProjects = () => {
+    if (projects && projects.length) {
+      return projects.map((item, index) => {
         return (
           <div className={styles.listItem} key={index}>
-            <div><b>HouseID :  {item.id}</b></div>
+            <div><b>ProjectID :  {item.id}</b></div>
             <div className={styles.edit_button}>
               <button
                 className={styles.button_get}
-                onClick={() => gethouse(item.id)}
+                onClick={() => getproject(item.id)}
               >
                 Get
               </button>
@@ -61,13 +61,13 @@ const admin = ({ token }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <div className={styles.list}>{showHouses()}</div>
+      <div className={styles.list}>{showProjects()}</div>
       <div className={styles.list1}>
-        <b>Name : {house.name}</b>
-        <b>Age : {house.age}</b>
-        <b>Deposit Date : {house.date}</b>
-        <b>Pick-up Date : {house.date2}</b>
-        <b>Price : {house.price}</b>
+        <div><b>Subject code:</b> {item.subjectcode} <br /></div>
+        <div><b>Subject name:</b> {item.subjectname} <br /></div>
+        <div><b>Work name:</b> {item.workname} <br /></div>
+        <div><b>Deadline:</b> {item.deadline}</div>
+        <div><b>Type:</b> {item.type}</div>
       </div>
     </div>
   );

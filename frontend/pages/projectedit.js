@@ -1,24 +1,24 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import styles from "../styles/house.module.css";
+import styles from "../styles/project.module.css";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
 import config from "../config/config";
 
 const admin = ({ token }) => {
   const [user, setUser] = useState({});
-  const [houses, setHouses] = useState({});
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [date, setDate] = useState("");
-  const [date2, setDate2] = useState("");
-  const [price, setPrice] = useState(0);
+  const [projects, setProjects] = useState({});
+  const [subjectcode, setSubjectcode] = useState("");
+  const [subjectname, setSubjectname] = useState("");
+  const [workname, setWorkname] = useState("");
+  const [deadline, setDeadline] = useState("");
+  const [type, setType] = useState("");
   const [actionbut, setactionbut] = useState(false)
   const [butstatus, setbutstatus] = useState(false)
 
   useEffect(() => {
-    getHouses();
-    if (houses.length === 9) {
+    getProjects();
+    if (projects.length === 9) {
       setbutstatus(true)
     } else setbutstatus(false)
     profileUser();
@@ -37,55 +37,55 @@ const admin = ({ token }) => {
     }
   };
 
-  const getHouses = async () => {
-    let result = await axios.get(`${config.URL}/houses`);
-    setHouses(result.data.list);
+  const getProjects = async () => {
+    let result = await axios.get(`${config.URL}/projects`);
+    setProjects(result.data.list);
   };
 
-  const addHouse = async () => {
+  const addProject = async () => {
     let result = await axios.post(URL, {
-      name,
-      age,
-      date,
-      date2,
-      price,
+      subjectcode,
+      subjectname,
+      workname,
+      deadline,
+      type,
     });
     console.log(result);
-    getHouses();
+    getProjects();
   };
 
-  const deleteHouse = async (id) => {
+  const deleteProject = async (id) => {
     let result = await axios.delete(`${config.URL}/${id}`);
-    getHouses();
+    getProjects();
   };
 
-  const updateHouse = async (id) => {
+  const updateProject = async (id) => {
     let result = await axios.put(`${config.URL}/${id}`, {
-      name,
-      age,
-      date,
-      date2,
-      price,
+      subjectcode,
+      subjectname,
+      workname,
+      deadline,
+      type,
     });
     console.log(result);
-    getHouses();
+    getProjects();
   };
 
-  const showHouses = () => {
-    if (houses && houses.length) {
-      return houses.map((item, index) => {
+  const showProjects = () => {
+    if (projects && projects.length) {
+      return projects.map((item, index) => {
         return (
           <div className={styles.listItem} key={index}>
-            <div><b>HouseID:</b> {item.id}</div>
-            <div><b>Name:</b> {item.name} <br /></div>
-            <div><b>Age:</b> {item.age} <br /></div>
-            <div><b>Deposit Date:</b> {item.date} <br /></div>
-            <div><b>Pick-up Date:</b> {item.date2}</div>
-            <div><b>Price:</b> {item.price}</div>
+            <div><b>ProjectID:</b> {item.id}</div>
+            <div><b>Subject code:</b> {item.subjectcode} <br /></div>
+            <div><b>Subject name:</b> {item.subjectname} <br /></div>
+            <div><b>Work name:</b> {item.workname} <br /></div>
+            <div><b>Deadline:</b> {item.deadline}</div>
+            <div><b>Type:</b> {item.type}</div>
             <div className={styles.edit_button}>
               <button
                 className={styles.button_update}
-                onClick={() => updateHouse(item.id)}
+                onClick={() => updateProject(item.id)}
               >
                 Update
               </button>
@@ -93,7 +93,7 @@ const admin = ({ token }) => {
                 className={styles.button_delete}
                 onClick={() => {
                   setactionbut(!actionbut)
-                  deleteHouse(item.id)
+                  deleteProject(item.id)
                 }}
               >
                 Delete
@@ -111,41 +111,41 @@ const admin = ({ token }) => {
       <Navbar />
       <h1><ins>House Management</ins></h1>
       <div className={styles.form_add}>
-      Name:
+      Subject Code:
         <input
           type="text"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
+          name="subjectcode"
+          onChange={(e) => setSubjectcode(e.target.value)}
         ></input>
-        Age:
-        <input
-          type="number"
-          name="age"
-          onChange={(e) => setAge(e.target.value)}
-        ></input>
-        Deposit Date:
+      Subject Name:
         <input
           type="text"
-          name="date"
-          onChange={(e) => setDate(e.target.value)}
+          name="subjectname"
+          onChange={(e) => setSubjectname(e.target.value)}
         ></input>
-        Pick-up Date:
+        Work name:
         <input
           type="text"
-          name="date2"
-          onChange={(e) => setDate2(e.target.value)}
+          name="workname"
+          onChange={(e) => setWorkname(e.target.value)}
         ></input>
-        Price:
+        Deadline:
         <input
-          type="number"
-          name="price"
-          onChange={(e) => setPrice(e.target.value)}
+          type="text"
+          name="deadline"
+          onChange={(e) => setDeadline(e.target.value)}
+        ></input>
+        Type:
+        <input
+          type="text"
+          name="type"
+          onChange={(e) => setType(e.target.value)}
         ></input>
         <button
           className={styles.button_add}
           disabled={butstatus}
           onClick={() => {
-            addHouse(name, age, date, date2, price)
+            addProject(subjectcode, subjectname,workname, deadline, type)
             setactionbut(!actionbut)
           }
           }
@@ -156,7 +156,7 @@ const admin = ({ token }) => {
 
       </div>
 
-      <div className={styles.list}>{showHouses()}</div>
+      <div className={styles.list}>{showProjects()}</div>
     </div>
   );
 };
