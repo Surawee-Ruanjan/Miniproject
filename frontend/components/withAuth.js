@@ -6,7 +6,7 @@ const withAuth = WrappedComponent => {
         const { token } = props
         const router = useRouter()
         useEffect(() => {
-            if (!token)
+            if (!token && localStorage.getItem('token' == null))
                 router.push('/login')
         }, [token])
         return (<WrappedComponent {...props} />)
