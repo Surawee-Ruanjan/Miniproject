@@ -16,7 +16,7 @@ const router = require("express").Router(),
   jwt = require("jsonwebtoken");
 
 app.use("/api", router);
-router.use(cors({ origin: "https://wizardly-gates-a04e70.netlify.app", credentials: true }));
+router.use(cors({ origin: "https://miniproject-one.vercel.app", credentials: true }));
 router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
