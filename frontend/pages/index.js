@@ -7,7 +7,6 @@ import styles from "../styles/Index.module.css";
 import Navbar from "../components/navbar";
 import config from "../config/config";
 const URL = `${config.URL}/projects`;
-const URL_SEL = `${config.URL}/purchase`;
 
 const fetcher = (key) => fetch(key).then((res) => res.json());
 const index = () => {
@@ -15,11 +14,6 @@ const index = () => {
   if (error) return <div>failed to load</div>;
   if (!data) return <div>Loading...</div>;
   console.log("data", data);
-
-  const selStu = async (id) => {
-    let result = await axios.post(`${config.URL}/${id}`)
-    mutate(URL, data);
-  }
 
   const showProjects = () => {
     if (data.list && data.list.length) {

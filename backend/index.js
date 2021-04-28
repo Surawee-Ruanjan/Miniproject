@@ -153,19 +153,6 @@ router
     res.json(projects.list);
   });
 
-
-router.route("/purchase/:projectid")
-  .post((req, res) => {
-    let id = projects.list.findIndex((item) => +item.id == +req.params.projectid)
-    if (id == -1) {
-      res.json({ message: "Project not found" })
-    }
-    else {
-      projects.list = projects.list.filter((item) => +item.id !== +req.params.projectid);
-      res.json(projects.list);
-    }
-  })
-
 // Error Handler
 app.use((err, req, res, next) => {
   let statusCode = err.status || 500;
