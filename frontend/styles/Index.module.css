@@ -75,3 +75,18 @@
     border: 2px solid red;
 }
 
+.projectCard{
+    max-width: 500px;
+    width : 400px;
+    margin: 10px;
+}
+
+.introHeader {
+    font-size: 2rem;    
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+    
+}

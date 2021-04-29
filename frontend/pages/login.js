@@ -5,7 +5,7 @@ import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 import config from "../config/config";
-
+import {Input} from 'antd'
 export default function Login({ token }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +33,7 @@ export default function Login({ token }) {
     <div className={styles.gridContainer}>
       <div><b>Username:</b></div>
       <div>
-        <input
+        <Input
           type="text"
           name="username"
           placeholder="Username"
@@ -42,7 +42,7 @@ export default function Login({ token }) {
       </div>
       <div><b>Password:</b></div>
       <div>
-        <input
+        <Input
           type="password"
           name="password"
           placeholder="Password"
@@ -50,7 +50,7 @@ export default function Login({ token }) {
         />
       </div>
       <div className="flex items-center">
-        <input
+        <Input
           id="remember_me"
           name="remember_me"
           type="checkbox"

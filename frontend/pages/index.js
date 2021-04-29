@@ -6,6 +6,7 @@ import React, { } from "react";
 import styles from "../styles/Index.module.css";
 import Navbar from "../components/navbar";
 import config from "../config/config";
+import {Card , Alert} from 'antd'
 const URL = `${config.URL}/projects`;
 
 const fetcher = (key) => fetch(key).then((res) => res.json());
@@ -19,7 +20,8 @@ const index = () => {
     if (data.list && data.list.length) {
       return data.list.map((item, index) => {
         return (
-          <div className={styles.listItem} key={index}>
+         <Card className={styles.projectCard}>
+            <div key={index}>
             <div><b>ProjectID:</b> {item.id}</div>
             <div><b>Subject code:</b> {item.subjectcode} <br /></div>
             <div><b>Subject name:</b> {item.subjectname} <br /></div>
@@ -27,6 +29,7 @@ const index = () => {
             <div><b>Deadline:</b> {item.deadline}</div>
             <div><b>Type:</b> {item.type}</div>
           </div>
+         </Card>
         );
       });
     } else {
@@ -38,9 +41,14 @@ const index = () => {
       <Head>
         <title>Home Page</title>
       </Head>
-      <div className={styles.container}><Navbar />
+      <div><Navbar />
 
-        <div className={styles.house}>Cat House</div>   
+      <div className={styles.introHeader}>
+      Project Management System
+      </div>   
+      
+
+  
         </div>
         <div className={styles.list}>
           {showProjects()}
