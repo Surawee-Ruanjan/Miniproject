@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar'
 import axios from 'axios'
 import config from '../config/config'
+import {Input} from 'antd'
 
 export default function Register({ token }) {
 
@@ -41,47 +42,47 @@ export default function Register({ token }) {
     const registerForm = () => (
         <div className={styles.gridContainer}>
             <div>
-                <b>Username:</b>
+                <b>Username :</b>
             </div>
             <div>
-                <input type="text"
+                <Input type="text"
                     name="username"
                     placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
             <div>
-                <b>Name:</b>
+                <b>Name :</b>
             </div>
             <div>
-                <input type="text"
+                <Input type="text"
                     name="name"
                     placeholder="Name"
                     onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
-                <b>Email:</b>
+                <b>Email :</b>
             </div>
             <div>
-                <input type="email"
+                <Input type="email"
                     name="email"
                     placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
-                <b>Year:</b>
+                <b>Year :</b>
             </div>
             <div>
-                <input type="number"
+                <Input type="number"
                     name="year"
                     placeholder="Your Year"
                     onChange={(e) => setYear(e.target.value)} />
             </div>
             <div>
-                <b>Password:</b>
+                <b>Password :</b>
             </div>
             <div>
-                <input type="password"
+                <Input type="password"
                     name="password"
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)} />
